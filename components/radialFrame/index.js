@@ -1,8 +1,8 @@
 import styles from "./radialFrame.module.css";
-import { createRef, useEffect, useRef, useState } from "react";
+import {createRef, useEffect, useLayoutEffect, useRef, useState} from "react";
 import StaggeredLines from "../svgs/staggeredLines";
 import Circle from "../svgs/circle";
-import { TweenLite, Linear, TimelineLite } from "gsap";
+import { TweenLite, TimelineLite, Linear } from "gsap";
 import { useFirstLoad } from "../../lib/hooks";
 import * as classnames from "classnames";
 
@@ -17,7 +17,7 @@ const RadialFrame = ({ text, lineAngle }) => {
   });
   const [end, setEnd] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     TweenLite.to(groupRef.current, 0.2, {
       rotation: lineAngle,
       transformOrigin: "50%",
@@ -51,6 +51,7 @@ const RadialFrame = ({ text, lineAngle }) => {
   };
 
   useEffect(() => {
+    console.log("Text Changed")
     if (text === null) {
       joinLinesCoverScreen();
       setEnd(true);

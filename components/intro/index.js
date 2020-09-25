@@ -67,22 +67,17 @@ const Intro = ({ runAnimation = false, onEnd }) => {
       return;
     }
 
-    console.log(`Delay: ${INTRO_SEQUENCE_FRAMES[frameNumber].delay}`);
-    console.log(`FRAME NUMBER: ${frameNumber}`);
     timeoutRef.current = setTimeout(
       () => animate(frameNumber + 1),
       INTRO_SEQUENCE_FRAMES[frameNumber].delay
     );
     setFrame(frameNumber);
-    console.log(`Set frame to ${frameNumber}`);
   };
 
   useEffect(() => {
     if (runAnimation) {
       animate(0);
-      console.log("ANIMATE");
     } else {
-      console.log("STOP ANIMATE");
       clearTimeout(timeoutRef.current);
     }
   }, [runAnimation]);

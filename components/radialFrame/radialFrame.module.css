@@ -2,6 +2,7 @@
   display: flex;
   flex-grow: 1;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -48,12 +49,14 @@
   overflow: hidden;
   align-items: center;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   opacity: 0.3;
   & svg {
     position: absolute;
     width: var(--radial-line-width);
     left: calc(50% - (var(--radial-line-width) / 2));
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
 
@@ -76,5 +79,6 @@
   .lines {
     --radial-line-width: 180vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
