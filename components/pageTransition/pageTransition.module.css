@@ -1,0 +1,100 @@
+.transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  overflow: hidden;
+}
+
+.rowContainer {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  grid-template-rows: repeat(4, 1fr);
+  transform: scale(1.8) rotateZ(-35deg);
+  display: grid;
+  opacity: 1;
+}
+
+.row {
+  opacity: 0;
+}
+
+.row1 {
+  background-color: var(--color-one);
+}
+
+.row2 {
+  background-color: var(--color-two);
+}
+
+.row3 {
+  background-color: var(--color-three);
+}
+
+.row4 {
+  background-color: var(--color-four);
+}
+
+@keyframes page-blend {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes row-fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.enterActive {
+  &.transition {
+    & .row {
+      animation: row-fade 0.8s 1;
+    }
+    & .row2 {
+      animation-delay: 0.1s;
+    }
+    & .row3 {
+      animation-delay: 0.2s;
+    }
+    & .row4 {
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+/* Animation Styles */
+
+.enterActive {
+  &:not(.transition) {
+    animation: page-blend 1.2s 1;
+  }
+}
+
+.enterDone {
+  &:not(.transition) {
+    opacity: 1;
+  }
+}
+
+.exit {
+  & .transition {
+    display: none;
+  }
+}

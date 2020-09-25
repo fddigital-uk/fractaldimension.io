@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-grow: 1;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-five);
+  font-size: 6vw;
+  font-weight: bold;
+}
+
+.text {
+  max-width: 48vw;
+  text-align: center;
+  position: relative;
+  top: -0.2em;
+}
+
+.circle {
+  position: absolute;
+  width: 82vw;
+  height: 82vw;
+  max-height: 300px;
+  max-width: 300px;
+  opacity: 0.1;
+
+  & svg {
+    width: 98%;
+  }
+}
+
+.end {
+  & .lines {
+    opacity: 1;
+    transition: opacity 1s linear;
+  }
+}
+
+.lines {
+  --radial-line-width: 280vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+  opacity: 0.3;
+  & svg {
+    position: absolute;
+    width: var(--radial-line-width);
+    left: calc(50% - (var(--radial-line-width) / 2));
+    height: 100vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: 4vw;
+  }
+
+  .text {
+    max-width: 30vw;
+  }
+
+  .circle {
+    max-width: none;
+    max-height: none;
+    width: 48vw;
+    height: 48vw;
+  }
+
+  .lines {
+    --radial-line-width: 180vw;
+    height: 100vh;
+  }
+}
